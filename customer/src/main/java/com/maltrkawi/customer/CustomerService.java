@@ -17,7 +17,7 @@ public record CustomerService(CustomerRepository customerRepository, RestTemplat
         customerRepository.saveAndFlush(customer); // populate customer object with generated id
         // check if fraudster
         FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
-                "http://localhost:8081/api/v1/fraud-check/{customerId}",
+                "http://FRAUD/api/v1/fraud-check/{customerId}",
                 FraudCheckResponse.class,
                 customer.getId());
         //customerRepository.save(customer);
